@@ -8,9 +8,15 @@ public class Main {
      * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
-
-        return null;
-
+        int leng=array1.length+array2.length;
+        int[]comb= new int[leng];
+        for (int i=0;i<array1.length;i++) {
+            comb[i] = array1[i];
+        }
+        for (int i=0;i<array2.length;i++) {
+            comb[array1.length+i]=array2[i];
+        }
+        return comb;
     }
 
     /**
@@ -21,9 +27,13 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
-
+        int leng=array1.length;
+        int[]comb=new int[leng*2];
+        for (int i=0;i<leng;i++) {
+            comb[i*2] = array1[i];
+            comb[i*2+1] = array2[i];
+        }
+        return comb;
     }
 
     /**
@@ -35,7 +45,12 @@ public class Main {
      */
     public static int[] product(int[] array1, int[] array2) {
 
-        return null;
+        int[]comb=new int[array1.length];
+        for(int i=0;i<array1.length;i++)
+        {
+            comb[i]=array1[i]*array2[i];
+        }
+        return comb;
 
     }
 
@@ -56,14 +71,25 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
-
-        return null;
+        int[]comb=new int[words.length];
+        for(int i=0;i<words.length;i++)
+        {
+            comb[i]=countCapitalLetters(words[i]);
+        }
+        return comb;
 
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
+        int count=0;
+        for(char c:word.toCharArray())
+        {
+            if(Character.isAlphabetic(c)&&(c>='A'&&c<='Z'))
+            {
+                count++;
+            }
+        }
+        return count;
 
     }
 
